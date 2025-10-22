@@ -2,38 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SavageSzym | Official Website</title>
+  <title>Szymon Mleczek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      background: #fff;
-      color: #000;
-      margin: 20px;
+    :root {
+      --bg: #f9f9f9;
+      --text: #111;
+      --subtle: #666;
     }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #555;
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --text: #f9f9f9;
+        --subtle: #aaa;
+      }
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 0.25rem 0;
+    }
+
+    .faint {
+      color: var(--subtle);
+      font-size: 0.95rem;
+    }
+
+    .dotcom {
+      letter-spacing: 0.5px;
+    }
+
+    .contact {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .emoji {
+      font-size: 1.5rem;
+      margin-left: 0.4rem;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to the SavageSzym Website</h1>
-
-  <h2>About</h2>
-  <p>
-    Hey there, and welcome to the official SavageSzym Website! Below you will find my current discography alongside their YouTube links. My music is published on all major streaming platforms unless explicitly stated otherwise.
-  </p>
-
-  <h2>Releases</h2>
-  <p>- <strong><a href="https://www.youtube.com/playlist?list=OLAK5uy_m2PLXUneBrW9oSRKh36GFszYhq1p8nJvM" target="_blank">Chilled Fusions</a></strong> (August 2025)</p>
-  <p>- <strong><a href="https://www.youtube.com/playlist?list=OLAK5uy_lahOmgKm1XDNfnzVtNetAw1HnYsF54a6A" target="_blank">Echo Circuit</a></strong> (July 2025)</p>
-  <p>- <strong><a href="https://www.youtube.com/playlist?list=OLAK5uy_kgjyX6QM1xdajt5AmovB2l4CiGrjdQqCc" target="_blank">horizons</a></strong> (July 2025)</p>
-  <p>- <strong><a href="https://www.youtube.com/playlist?list=OLAK5uy_kldqJlYCmC5U7fHKSywgfnB3wkGkXL_dc" target="_blank">The Overdrive</a></strong> (first release April 2024, second release July 2025)</p>
-
-  <footer>
-    <hr>
-    <p>© SavageSzym Productions, 2024 - 2025</p>
-  </footer>
+  <h1>Szymon Mleczek</h1>
+  <p class="contact">Contact Me <span class="emoji">👇</span></p>
+  <p class="dotcom">szymon <span style="user-select:none;">[at]</span> szymonmleczek <span style="user-select:none;">[dot]</span> com</p>
+  <p class="faint">Nothing fancy. Just me, my name, and my inbox.</p>
 </body>
 </html>
