@@ -1,77 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Szymon's Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root {
-      --bg: #f9f9f9;
-      --text: #111;
-      --subtle: #666;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Szymon Mleczek's Profile</title>
+<style>
+  :root{
+    --text-main: #2b2430;
+    --text-muted: #8b8393;
+    --accent: #9b59d0;
+    --accent-dark: #7d3fae;
+    --card-bg: #ffffff;
+    --divider: #ece5f2;
+    --font-display: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111;
-        --text: #f9f9f9;
-        --subtle: #aaa;
-      }
-    }
+  *{ box-sizing: border-box; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      transition: background 0.3s, color 0.3s;
-    }
+  body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--text-main);
+    line-height: 1.5;
+    background: #000000;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+  }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
+  /* ---- Floating island card ---- */
+  .island{
+    background: var(--card-bg);
+    border-radius: 28px;
+    max-width: 780px;
+    width: 100%;
+    padding: 48px 56px 40px;
+    box-shadow: 0 30px 70px -20px rgba(123, 63, 174, 0.25), 0 8px 24px -8px rgba(123, 63, 174, 0.15);
+  }
 
-    p {
-      font-size: 1.2rem;
-      margin: 0.25rem 0;
-    }
+  /* ---- Top row: name/about me ---- */
+  .top-row{
+    margin-bottom: 20px;
+  }
+  .top-info h1{
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+  }
+  .top-info .about-text{
+    font-size: 0.98rem;
+    color: var(--text-main);
+    margin: 0 0 12px;
+  }
 
-    .faint {
-      color: var(--subtle);
-      font-size: 0.95rem;
-    }
+  .contact-line{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+  }
+  .contact-line .icon{ font-size: 1rem; width: 20px; text-align: center; }
+  .contact-line a{ color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  .contact-line a:hover{ text-decoration: underline; }
+  .contact-line .sub{ color: var(--text-muted); font-style: italic; font-size: 0.85rem; margin-left: 2px;}
 
-    .dotcom {
-      letter-spacing: 0.5px;
-    }
+  hr.divider{
+    border: none;
+    border-top: 1px solid var(--divider);
+    margin: 26px 0;
+  }
 
-    .contact {
-      font-size: 1.3rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
+  /* ---- Centered sections below ---- */
+  .centered-section{
+    text-align: center;
+  }
+  .centered-section h2{
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: var(--text-main);
+  }
 
-    .emoji {
-      font-size: 1.5rem;
-      margin-left: 0.4rem;
-    }
-  </style>
+  .about-more p{
+    font-size: 0.98rem;
+    color: var(--text-main);
+    max-width: 560px;
+    margin: 0 auto 12px;
+    overflow-wrap: anywhere;
+  }
+  .about-more p:last-child{ margin-bottom: 0; }
+
+  .socials-item{
+    margin-bottom: 8px;
+    font-size: 0.98rem;
+    overflow-wrap: anywhere;
+  }
+  .socials-item .icon{ width: 20px; display: inline-block; text-align: center; }
+  .socials-item a{ color: var(--accent-dark); text-decoration: none; }
+  .socials-item a:hover{ text-decoration: underline; }
+
+  .footer-note{
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 620px){
+    body{ padding: 32px 14px; }
+    .island{ padding: 32px 22px 26px; border-radius: 22px; }
+    .top-row{ margin-bottom: 8px; }
+    .top-info h1{ font-size: 1.7rem; }
+    .top-info .about-text{ font-size: 0.92rem; }
+    .contact-line{ flex-wrap: wrap; font-size: 0.88rem; }
+    .contact-line .sub{ display: block; margin-left: 0; }
+    hr.divider{ margin: 20px 0; }
+    .centered-section h2{ font-size: 1.2rem; }
+    .socials-item{ font-size: 0.92rem; }
+  }
+
+  @media (max-width: 380px){
+    .top-info h1{ font-size: 1.5rem; }
+  }
+</style>
 </head>
 <body>
-  <h1>Szymon Mleczek</h1>
-  <p class="contact">Contact Me <span class="emoji">👇</span></p>
-  <p class="dotcom">szymon <span style="user-select:none;">[at]</span> szymonmleczek <span style="user-select:none;">[dot]</span> com</p>
-  <p class="faint">Website version 2 launches soon</p>
+
+<div class="island">
+
+  <!-- ============ TOP: NAME/ABOUT ============ -->
+  <div class="top-row">
+    <div class="top-info">
+      <h1>Szymon Mleczek</h1>
+      <p class="about-text">Hey, I'm Szymon! Thanks for stopping by my little corner of the internet.</p>
+
+      <div class="contact-line">
+        <span class="icon">✉️</span>
+        <span>szymon [at] szymonmleczek [dot] com</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ============ MORE ABOUT ME ============ -->
+  <section class="centered-section about-more">
+    <h2>About Me</h2>
+    <p>I'm Szymon, a Hamburg-based IT guy working on the next something. From teaching folks about tech to tinkering in my free time, I'm always somewhere.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ SOCIALS ============ -->
+  <section class="centered-section">
+    <h2>Socials</h2>
+
+    <div class="socials-item">
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/szymonmleczek/" target="_blank" rel="noopener">Szymon Mleczek</a>
+    </div>
+    <div class="socials-item">
+      <strong>X:</strong> <a href="https://x.com/SzymonMleczek" target="_blank" rel="noopener">@SzymonMleczek</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <p class="footer-note">© 2026 Szymon Mleczek. All rights reserved.</p>
+
+</div>
+
 </body>
 </html>
-
-
-
